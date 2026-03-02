@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --accent: #00f0ff;
+    --accent-glow: rgba(0, 240, 255, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #000000;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: #aaa;
+}
+
+.gallery-item img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    /* Slight scale */
+}
+
+.caption {
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .gallery {
+        gap: 1.5rem;
+    }
+}
